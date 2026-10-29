@@ -1,0 +1,14 @@
+import {performance} from 'node:perf_hooks';import {cpus,arch,totalmem} from 'node:os';import {writeFile,mkdir} from 'node:fs/promises';
+import {pool,query} from '../src/lib/db';import {config} from '../src/lib/config';import {searchCatalogue,addCopy} from '../src/domain/catalogue';import {requestLoan,decideRequest,transitionLoan} from '../src/domain/loans';import {fixtureMember,fixtureLibrary,assertIsolatedDatabase} from '../tests/integration/helpers';
+assertIsolatedDatabase();if(config.environment!=='test')throw new Error('Load test requires APP_ENV=test and dedicated *_test database.');
+const owner=await fixtureMember(),borrower=await fixtureMember(),library=await fixtureLibrary();const ids: Awaited<ReturnType<typeof addCopy>>[]=[];
+for(let i=0;i<60;i++)ids.push(await addCopy(owner,{libraryId:library,title:`Carte sintetică ${i}`,authors:[`Autor sintetic ${i%8}`],visibility:'PUBLIC',condition:'good',unspecified:true}));
+const latencies:{search:number[];write:number[]}={search:[],write:[]};let errors=0;
+async function measure(kind:'search'|'write',fn:()=>Promise<unknown>){const t=performance.now();try{await fn();}catch{errors++;}latencies[kind].push(performance.now()-t);}
+const begin=performance.now();
+// One small process; no heavy parallel builders/browsers. Four catalogue requests maximum.
+for(let i=0;i<40;i++)await Promise.all(Array.from({length:4},()=>measure('search',()=>searchCatalogue('Carte sintetică',library,1))));
+for(let i=0;i<30;i++)await measure('write',async()=>{const r=await requestLoan(borrower,{copyId:ids[i%ids.length].id});const l=await decideRequest(owner,{requestId:r.id,durationDays:28},'ACCEPTED');await transitionLoan(owner,{loanId:l.loanId},'cancel');});
+function percentile(values:number[],p:number){const sorted=[...values].sort((a,b)=>a-b);return Math.round(sorted[Math.max(0,Math.ceil(sorted.length*p)-1)]*100)/100;}
+const report={recordedAt:new Date().toISOString(),conditions:{architecture:arch(),cpus:cpus().length,hostMemoryMiB:Math.round(totalmem()/1048576),dbPool:config.dbPoolMax,syntheticWorks:60,searchConcurrency:4,writeConcurrency:1,externalServices:false},durationMs:Math.round(performance.now()-begin),errors,processRssMiB:Math.round(process.memoryUsage().rss/1048576),search:{requests:latencies.search.length,p50Ms:percentile(latencies.search,.5),p95Ms:percentile(latencies.search,.95)},reservationWrites:{requests:latencies.write.length,p50Ms:percentile(latencies.write,.5),p95Ms:percentile(latencies.write,.95)},limitations:'Local service-domain measurements only; HTTP, TLS, browser, worker and PostgreSQL RSS are not included. No production capacity promise.'};
+await mkdir('test-results',{recursive:true});await writeFile('test-results/load-test.json',JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));await pool.end();if(errors)process.exitCode=1;

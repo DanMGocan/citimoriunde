@@ -1,0 +1,33 @@
+[Unit]
+Description=Citimoriunde bounded background worker
+After=network-online.target postgresql.service biblioteca-preview.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=biblioteca
+Group=biblioteca
+WorkingDirectory=/opt/biblioteca
+LoadCredential=app.env:/root/biblioteca/.env
+Environment=CONFIG_ENV_FILE=%d/app.env
+Environment=NODE_ENV=production APP_ENV=production APP_URL=https://citimoriunde.eu
+Environment=REGISTRATION_ENABLED=false ADS_MODE=off TRUSTED_PROXY=true
+Environment=STORAGE_PATH=/var/lib/biblioteca/images BACKUP_PATH=/var/lib/biblioteca/backups
+Environment=NODE_OPTIONS=--max-old-space-size=256
+ExecStart=/usr/bin/node --import /opt/biblioteca/node_modules/tsx/dist/loader.mjs /opt/biblioteca/scripts/worker.ts
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=70
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/biblioteca
+RestrictSUIDSGID=true
+LockPersonality=true
+MemoryMax=384M
+CPUQuota=25%
+
+[Install]
+WantedBy=multi-user.target

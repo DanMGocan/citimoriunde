@@ -1,0 +1,11 @@
+import { uiText, formatText } from "../../../components/ui-copy";
+import { cache } from "react";
+import type { Metadata } from "next";
+import { LibraryPage } from "../../../components/catalogue";
+import { searchCatalogue } from "../../../domain/catalogue";
+import { query } from "../../../lib/db";
+import { config } from "../../../lib/config";
+export const dynamic="force-dynamic";
+const getLibrary=cache(async(id:string)=>{try{const city=await query('SELECT id,name,display_name,country_code FROM libraries WHERE id=$1 AND active',[id]);if(!city.rowCount)return undefined;const [books,count]=await Promise.all([searchCatalogue("",id),query(`WITH public_copies AS (SELECT c.id,c.state FROM copies c JOIN members m ON m.id=c.owner_id JOIN editions e ON e.id=c.edition_id JOIN works w ON w.id=e.work_id JOIN libraries l ON l.id=c.library_id WHERE c.library_id=$1 AND c.visibility='PUBLIC' AND c.state<>'REMOVED' AND c.moderation_state<>'HIDDEN' AND m.status='ACTIVE' AND NOT m.bookshelf_paused AND l.active AND w.moderation_state='APPROVED' AND w.merged_into IS NULL) SELECT (SELECT count(*)::int FROM members WHERE home_library_id=$1 AND status='ACTIVE') members,(SELECT count(*)::int FROM public_copies) copies,(SELECT count(*)::int FROM public_copies WHERE state='AVAILABLE') available,(SELECT count(*)::int FROM loans WHERE library_id=$1 AND state='RETURNED') returned,(SELECT count(*)::int FROM gift_offers g JOIN loans l ON l.id=g.loan_id WHERE l.library_id=$1 AND g.state='ACCEPTED') gifts`,[id])]);return {library:city.rows[0],works:books.works,counts:count.rows[0],total:books.total};}catch{return undefined;}});
+export async function generateMetadata({params}:{params:Promise<{id:string}>}):Promise<Metadata>{const {id}=await params,data=await getLibrary(id);if(!data)return {title:uiText.sb4fd5bf944,robots:{index:false}};return {title:formatText(uiText.s4ddc4ea914, data.library.display_name),description:formatText(uiText.s15a093d1b6, data.library.display_name),alternates:{canonical:`${config.appUrl}/biblioteci/${id}`},robots:{index:data.counts.copies>0,follow:true}};}
+export default async function Page({params}:{params:Promise<{id:string}>}){const {id}=await params;return <LibraryPage id={id} initial={await getLibrary(id)}/>;}

@@ -1,0 +1,3 @@
+import {roDomain} from '../domain/ro.ts';
+import {DomainError} from '../domain/errors.ts';
+export async function boundedJson(request:Request,max=32768){const reader=request.body?.getReader();if(!reader)throw new DomainError('INVALID_BODY',roDomain.r319447685d);const chunks:Uint8Array[]=[];let length=0;while(true){const {done,value}=await reader.read();if(done)break;length+=value.byteLength;if(length>max){await reader.cancel();throw new DomainError('BODY_TOO_LARGE',roDomain.re545a45c52,413);}chunks.push(value);}try{return JSON.parse(Buffer.concat(chunks).toString('utf8'));}catch{throw new DomainError('INVALID_BODY',roDomain.r561d8b9b02);}}

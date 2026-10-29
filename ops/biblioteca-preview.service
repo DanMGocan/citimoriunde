@@ -1,0 +1,34 @@
+[Unit]
+Description=Citimoriunde application preview (registration closed)
+After=network-online.target postgresql.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=biblioteca
+Group=biblioteca
+WorkingDirectory=/opt/biblioteca/.next/standalone
+LoadCredential=app.env:/root/biblioteca/.env
+Environment=CONFIG_ENV_FILE=%d/app.env
+Environment=NODE_ENV=production APP_ENV=production APP_URL=https://citimoriunde.eu
+Environment=REGISTRATION_ENABLED=false ADS_MODE=off TRUSTED_PROXY=true
+Environment=HOSTNAME=127.0.0.1 PORT=3000 NEXT_TELEMETRY_DISABLED=1
+Environment=STORAGE_PATH=/var/lib/biblioteca/images BACKUP_PATH=/var/lib/biblioteca/backups
+Environment=NODE_OPTIONS=--max-old-space-size=768
+ExecStart=/usr/bin/node /opt/biblioteca/.next/standalone/server.js
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=70
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/biblioteca
+RestrictSUIDSGID=true
+LockPersonality=true
+MemoryMax=1G
+CPUQuota=100%
+
+[Install]
+WantedBy=multi-user.target

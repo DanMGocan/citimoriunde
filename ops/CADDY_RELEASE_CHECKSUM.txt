@@ -1,0 +1,5 @@
+version: 2.11.7
+architecture: linux_arm64
+source: https://github.com/caddyserver/caddy/releases/tag/v2.11.7
+release_sha512: 3db36ba90c7a6e8dda40ee3dd71fa08844c76b5fb08f61b31e5e78d2ed38e71c51dc7baed875e50d1ca1279196e84302967237386ae87c91ae9f2aaceada682e
+local_sha256: d8fc6d179a5d283028a472a5618564f6ad8a86fed513e64f032b3b0b7cc45e42

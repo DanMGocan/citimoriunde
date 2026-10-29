@@ -1,0 +1,443 @@
+{
+  "description": "EU-only product eligibility and explicit initial-city selection. Previous continental-boundary evidence is retained for historical provenance and does not admit a city under the current policy.",
+  "reviewed_date": "2026-10-09",
+  "boundary_convention": {
+    "description": "Use the Ural Mountains crest, Ural River, Caspian Sea, Greater Caucasus main watershed, Black Sea and Turkish Straits (Bosphorus, Sea of Marmara, Dardanelles). North/west of this boundary is Europe. This is an explicit operational choice among boundary conventions. Istanbul is the sole whole-city transcontinental exception required by the brief.",
+    "source_url": "https://www.nationalgeographic.org/national-geographic-map-policy",
+    "supporting_urls": [
+      "https://modis.gsfc.nasa.gov/gallery/individual.php?db_date=2016-05-03",
+      "https://modis.gsfc.nasa.gov/gallery/individual.php?db_date=2020-04-20"
+    ],
+    "interpretation": "The National Geographic policy identifies the mountain/river/strait sequence; this project explicitly chooses the Greater Caucasus watershed within that mountain convention. Individual include/exclude decisions are geographic inferences from the references and actual F21 positions, not UN continent endorsements or country-wide admissions."
+  },
+  "candidate_review": {
+    "wholly_european_top50_cutoff_persons": 833020,
+    "transcontinental_candidates_at_or_above_cutoff": 25,
+    "required_decisions": 25,
+    "population_values_from": "WUP2025 F21 2025 cells only"
+  },
+  "decisions": {
+    "un-wup2025-city:1069": {
+      "include": false,
+      "reason": "Izmir lies in western Anatolia, on the Asian side of the Turkish Straits.",
+      "source_url": "https://www.nationsonline.org/oneworld/map/turkey-map.htm",
+      "reviewed_date": "2026-10-09"
+    },
+    "un-wup2025-city:1705": {
+      "include": false,
+      "reason": "Astana lies east of the Ural River, outside geographic Europe under the chosen boundary.",
+      "source_url": "https://www.nationsonline.org/oneworld/map/kazakhstan-political-map.htm",
+      "reviewed_date": "2026-10-09",
+      "supporting_urls": [
+        "https://www.un.org/geospatial/sites/www.un.org.geospatial/files/files/documents/2020/Apr/kazakhstan_3771_r7_jan20_converted.pdf"
+      ]
+    },
+    "un-wup2025-city:2348": {
+      "include": false,
+      "reason": "Baku lies on the southern Absheron Peninsula, south of the Greater Caucasus divide; excluded under the chosen watershed boundary.",
+      "source_url": "https://baku-ih.gov.az/en/about-the-city.html",
+      "reviewed_date": "2026-10-09",
+      "supporting_urls": [
+        "https://modis.gsfc.nasa.gov/gallery/individual.php?db_date=2020-04-20",
+        "https://www.tehran.mfa.gov.az/en/content/45/tebiet-ve-servetler"
+      ]
+    },
+    "un-wup2025-city:2354": {
+      "include": false,
+      "reason": "Shymkent lies east of the Ural River, outside geographic Europe under the chosen boundary.",
+      "source_url": "https://www.nationsonline.org/oneworld/map/kazakhstan-political-map.htm",
+      "reviewed_date": "2026-10-09",
+      "supporting_urls": [
+        "https://www.un.org/geospatial/sites/www.un.org.geospatial/files/files/documents/2020/Apr/kazakhstan_3771_r7_jan20_converted.pdf"
+      ]
+    },
+    "un-wup2025-city:2485": {
+      "include": true,
+      "reason": "Moscow lies on the East European Plain, west of the Urals.",
+      "source_url": "https://www.nationsonline.org/oneworld/map/European-Russia-map.htm",
+      "reviewed_date": "2026-10-09"
+    },
+    "un-wup2025-city:2626": {
+      "include": true,
+      "reason": "Istanbul straddles the Bosphorus in Europe and Asia; include once using the whole-city F21 population, including both sides, without a European-side estimate.",
+      "source_url": "https://science.nasa.gov/earth/earth-observatory/bridging-the-bosphorus-91014/",
+      "reviewed_date": "2026-10-09"
+    },
+    "un-wup2025-city:2965": {
+      "include": false,
+      "reason": "Almaty lies east of the Ural River, outside geographic Europe under the chosen boundary.",
+      "source_url": "https://www.nationsonline.org/oneworld/map/kazakhstan-political-map.htm",
+      "reviewed_date": "2026-10-09",
+      "supporting_urls": [
+        "https://www.un.org/geospatial/sites/www.un.org.geospatial/files/files/documents/2020/Apr/kazakhstan_3771_r7_jan20_converted.pdf"
+      ]
+    },
+    "un-wup2025-city:3124": {
+      "include": false,
+      "reason": "Bursa lies in south of the Sea of Marmara in Anatolia, on the Asian side of the Turkish Straits.",
+      "source_url": "https://www.nationsonline.org/oneworld/map/turkey-map.htm",
+      "reviewed_date": "2026-10-09"
+    },
+    "un-wup2025-city:4362": {
+      "include": true,
+      "reason": "Voronezh lies in the European part of Russia, in the Don basin west of the Urals.",
+      "source_url": "https://voda.gov.ru/maps/voronezhskaya-oblast/",
+      "reviewed_date": "2026-10-09",
+      "supporting_urls": [
+        "https://www.nationsonline.org/oneworld/map/European-Russia-map.htm"
+      ]
+    },
+    "un-wup2025-city:450": {
+      "include": false,
+      "reason": "Tbilisi lies in the Mtkvari valley south of the Greater Caucasus watershed; excluded under the chosen boundary.",
+      "source_url": "https://www.nationsonline.org/oneworld/map/georgia_map2.htm",
+      "reviewed_date": "2026-10-09",
+      "supporting_urls": [
+        "https://www.gtu.edu.ge/en/enroll/for-the-applicants/international-students/about-tbilisi/"
+      ]
+    },
+    "un-wup2025-city:4508": {
+      "include": false,
+      "reason": "Antalya lies in southwest Anatolia, on the Asian side of the Turkish Straits.",
+      "source_url": "https://www.nationsonline.org/oneworld/map/turkey-map.htm",
+      "reviewed_date": "2026-10-09"
+    },
+    "un-wup2025-city:4622": {
+      "include": true,
+      "reason": "Nizhny Novgorod lies on the Volga/Oka, west of the Urals.",
+      "source_url": "https://www.nationsonline.org/oneworld/map/European-Russia-map.htm",
+      "reviewed_date": "2026-10-09"
+    },
+    "un-wup2025-city:4837": {
+      "include": false,
+      "reason": "Sincan is an Ankara district in central Anatolia, on the Asian side of the Turkish Straits.",
+      "source_url": "https://ankara.ktb.gov.tr/TR-152783/sincan.html",
+      "reviewed_date": "2026-10-09",
+      "supporting_urls": [
+        "https://www.nationsonline.org/oneworld/map/turkey-map.htm"
+      ]
+    },
+    "un-wup2025-city:4941": {
+      "include": false,
+      "reason": "Ankara lies in central Anatolia, on the Asian side of the Turkish Straits.",
+      "source_url": "https://www.nationsonline.org/oneworld/map/turkey-map.htm",
+      "reviewed_date": "2026-10-09"
+    },
+    "un-wup2025-city:5012": {
+      "include": true,
+      "reason": "Rostov-on-Don lies north of the Greater Caucasus watershed and west of the Urals.",
+      "source_url": "https://www.nationsonline.org/oneworld/map/European-Russia-map.htm",
+      "reviewed_date": "2026-10-09"
+    },
+    "un-wup2025-city:5107": {
+      "include": false,
+      "reason": "Konya lies in central Anatolia, on the Asian side of the Turkish Straits.",
+      "source_url": "https://www.nationsonline.org/oneworld/map/turkey-map.htm",
+      "reviewed_date": "2026-10-09"
+    },
+    "un-wup2025-city:5654": {
+      "include": false,
+      "reason": "Kayseri lies in central Anatolia, on the Asian side of the Turkish Straits.",
+      "source_url": "https://www.nationsonline.org/oneworld/map/turkey-map.htm",
+      "reviewed_date": "2026-10-09"
+    },
+    "un-wup2025-city:568": {
+      "include": true,
+      "reason": "Saint Petersburg lies at the Gulf of Finland, west of the Urals.",
+      "source_url": "https://www.nationsonline.org/oneworld/map/European-Russia-map.htm",
+      "reviewed_date": "2026-10-09"
+    },
+    "un-wup2025-city:5923": {
+      "include": true,
+      "reason": "Kazan lies on the Volga, west of the Urals.",
+      "source_url": "https://www.nationsonline.org/oneworld/map/European-Russia-map.htm",
+      "reviewed_date": "2026-10-09"
+    },
+    "un-wup2025-city:6315": {
+      "include": false,
+      "reason": "Gaziantep lies in southeast Anatolia, on the Asian side of the Turkish Straits.",
+      "source_url": "https://www.nationsonline.org/oneworld/map/turkey-map.htm",
+      "reviewed_date": "2026-10-09"
+    },
+    "un-wup2025-city:6468": {
+      "include": true,
+      "reason": "Samara lies on the Volga, west of the Urals.",
+      "source_url": "https://www.nationsonline.org/oneworld/map/European-Russia-map.htm",
+      "reviewed_date": "2026-10-09"
+    },
+    "un-wup2025-city:7015": {
+      "include": true,
+      "reason": "Ufa lies west of the Ural mountains.",
+      "source_url": "https://www.nationsonline.org/oneworld/map/European-Russia-map.htm",
+      "reviewed_date": "2026-10-09"
+    },
+    "un-wup2025-city:7152": {
+      "include": false,
+      "reason": "Yekaterinburg lies on the eastern flank of the Urals, on the Asian side of the chosen boundary.",
+      "source_url": "https://eol.jsc.nasa.gov/Collections/EarthFromSpace/photoinfo.pl?PHOTO=STS068-269-4",
+      "reviewed_date": "2026-10-09",
+      "supporting_urls": [
+        "https://www.nationsonline.org/oneworld/map/European-Russia-map.htm"
+      ]
+    },
+    "un-wup2025-city:7462": {
+      "include": false,
+      "reason": "Omsk lies east of the Urals in western Siberia; excluded geographically.",
+      "source_url": "https://www.nationsonline.org/oneworld/map/russia-political-map.htm",
+      "reviewed_date": "2026-10-09"
+    },
+    "un-wup2025-city:7486": {
+      "include": false,
+      "reason": "Novosibirsk lies east of the Urals in western Siberia; excluded geographically.",
+      "source_url": "https://www.nationsonline.org/oneworld/map/russia-political-map.htm",
+      "reviewed_date": "2026-10-09"
+    }
+  },
+  "romanian_names": {
+    "un-wup2025-city:2485": {
+      "display_name": "Moscova",
+      "aliases": [
+        "Moskva (Moscow)",
+        "Moskva",
+        "Moscow"
+      ]
+    },
+    "un-wup2025-city:5938": {
+      "display_name": "Londra",
+      "aliases": [
+        "London"
+      ]
+    },
+    "un-wup2025-city:568": {
+      "display_name": "Sankt Petersburg",
+      "aliases": [
+        "Saint Petersburg",
+        "St Petersburg"
+      ]
+    },
+    "un-wup2025-city:833": {
+      "display_name": "Atena",
+      "aliases": [
+        "Athína (Athens)",
+        "Athína",
+        "Athens"
+      ]
+    },
+    "un-wup2025-city:4726": {
+      "display_name": "Napoli",
+      "aliases": [
+        "Naples"
+      ]
+    },
+    "un-wup2025-city:2178": {
+      "display_name": "Kiev",
+      "aliases": [
+        "Kyiv (Kiev)",
+        "Kyiv",
+        "Kiev"
+      ]
+    },
+    "un-wup2025-city:1848": {
+      "display_name": "Milano",
+      "aliases": [
+        "Milan"
+      ]
+    },
+    "un-wup2025-city:4156": {
+      "display_name": "Roma",
+      "aliases": [
+        "Roma (Rome)",
+        "Rome"
+      ]
+    },
+    "un-wup2025-city:1054": {
+      "display_name": "Viena",
+      "aliases": [
+        "Wien (Vienna)",
+        "Wien",
+        "Vienna"
+      ]
+    },
+    "un-wup2025-city:217": {
+      "display_name": "Lisabona",
+      "aliases": [
+        "Lisboa (Lisbon)",
+        "Lisboa",
+        "Lisbon"
+      ]
+    },
+    "un-wup2025-city:2329": {
+      "display_name": "București",
+      "aliases": [
+        "București (Bucharest)",
+        "Bucharest",
+        "Bucuresti"
+      ]
+    },
+    "un-wup2025-city:3660": {
+      "display_name": "Varșovia",
+      "aliases": [
+        "Warszawa (Warsaw)",
+        "Warszawa",
+        "Warsaw",
+        "Varsovia"
+      ]
+    },
+    "un-wup2025-city:5337": {
+      "display_name": "München",
+      "aliases": [
+        "Munich",
+        "Munchen"
+      ]
+    },
+    "un-wup2025-city:942": {
+      "display_name": "Budapesta",
+      "aliases": [
+        "Budapest"
+      ]
+    },
+    "un-wup2025-city:1157": {
+      "display_name": "Bruxelles",
+      "aliases": [
+        "Bruxelles (Brussels)",
+        "Brussels",
+        "Brussel"
+      ]
+    },
+    "un-wup2025-city:680": {
+      "display_name": "Copenhaga",
+      "aliases": [
+        "København (Copenhagen)",
+        "København",
+        "Copenhagen"
+      ]
+    },
+    "un-wup2025-city:542": {
+      "display_name": "Praga",
+      "aliases": [
+        "Praha (Prague)",
+        "Praha",
+        "Prague"
+      ]
+    },
+    "un-wup2025-city:4622": {
+      "display_name": "Nijni Novgorod",
+      "aliases": [
+        "Nizhny Novgorod"
+      ]
+    },
+    "un-wup2025-city:61": {
+      "display_name": "Torino",
+      "aliases": [
+        "Turin"
+      ]
+    },
+    "un-wup2025-city:1160": {
+      "display_name": "Köln",
+      "aliases": [
+        "Cologne",
+        "Koln"
+      ]
+    },
+    "un-wup2025-city:556": {
+      "display_name": "Belgrad",
+      "aliases": [
+        "Beograd (Belgrade)",
+        "Beograd",
+        "Belgrade"
+      ]
+    },
+    "un-wup2025-city:5012": {
+      "display_name": "Rostov-pe-Don",
+      "aliases": [
+        "Rostov-on-Don"
+      ]
+    },
+    "un-wup2025-city:555": {
+      "display_name": "Helsinki",
+      "aliases": [
+        "Helsinki (Helsingfors)",
+        "Helsingfors"
+      ]
+    },
+    "un-wup2025-city:807": {
+      "display_name": "Düsseldorf",
+      "aliases": [
+        "Dusseldorf"
+      ]
+    },
+    "un-wup2025-city:3500": {
+      "display_name": "Frankfurt pe Main",
+      "aliases": [
+        "Frankfurt",
+        "Frankfurt am Main"
+      ]
+    },
+    "un-wup2025-city:948": {
+      "display_name": "Cluj-Napoca",
+      "aliases": [
+        "Cluj",
+        "Cluj Napoca"
+      ]
+    },
+    "un-wup2025-city:2553": {
+      "display_name": "Iași",
+      "aliases": [
+        "Iasi",
+        "Iaşi"
+      ]
+    },
+    "un-wup2025-city:262": {
+      "display_name": "Timișoara",
+      "aliases": [
+        "Timisoara",
+        "Timişoara"
+      ]
+    }
+  },
+  "historical_geographic_review": true,
+  "geography_scope": "EU",
+  "country_policy": "data/eu-countries.json",
+  "selection": {
+    "description": "Keep the 32 EU cities already present in the original 50-city Europe manifest, then add the three Romanian cities requested by the user. Do not add replacement cities merely to retain a 50-city count.",
+    "retained_source_ids": [
+      "un-wup2025-city:2994",
+      "un-wup2025-city:3440",
+      "un-wup2025-city:5068",
+      "un-wup2025-city:5576",
+      "un-wup2025-city:833",
+      "un-wup2025-city:4726",
+      "un-wup2025-city:675",
+      "un-wup2025-city:1848",
+      "un-wup2025-city:4156",
+      "un-wup2025-city:1054",
+      "un-wup2025-city:217",
+      "un-wup2025-city:2329",
+      "un-wup2025-city:3660",
+      "un-wup2025-city:5337",
+      "un-wup2025-city:4278",
+      "un-wup2025-city:942",
+      "un-wup2025-city:1672",
+      "un-wup2025-city:1157",
+      "un-wup2025-city:4574",
+      "un-wup2025-city:1754",
+      "un-wup2025-city:680",
+      "un-wup2025-city:4068",
+      "un-wup2025-city:542",
+      "un-wup2025-city:61",
+      "un-wup2025-city:377",
+      "un-wup2025-city:1160",
+      "un-wup2025-city:100",
+      "un-wup2025-city:387",
+      "un-wup2025-city:555",
+      "un-wup2025-city:1030",
+      "un-wup2025-city:807",
+      "un-wup2025-city:3500"
+    ],
+    "added_source_ids": [
+      "un-wup2025-city:948",
+      "un-wup2025-city:2553",
+      "un-wup2025-city:262"
+    ]
+  }
+}

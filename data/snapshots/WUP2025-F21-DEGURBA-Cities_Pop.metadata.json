@@ -1,0 +1,18 @@
+{
+  "source_url": "https://population.un.org/wup/assets/Download/Cities/WUP2025-F21-DEGURBA-Cities_Pop.xlsx",
+  "retrieval_date": "2026-10-09",
+  "bytes": 10671837,
+  "sha256": "3a96030d87aec6c1c50f658d5321067d6345e1ab936c5d2854524f972caa75c0",
+  "md5_base64": "e9PETL0G2R9l39YfoKY86g==",
+  "official_http_head_observation": {
+    "date": "Fri, 09 Oct 2026 14:54:49 GMT",
+    "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    "content_length": 10671837,
+    "content_md5": "e9PETL0G2R9l39YfoKY86g==",
+    "last_modified": "Fri, 06 Mar 2026 19:35:48 GMT",
+    "etag": "\"0x8DE7BB79177231F\""
+  },
+  "attribution": "United Nations, Department of Economic and Social Affairs, Population Division (2025). World Urbanization Prospects: The 2025 Revision, Online Edition.",
+  "licence": "CC BY 3.0 IGO",
+  "licence_url": "https://creativecommons.org/licenses/by/3.0/igo/"
+}

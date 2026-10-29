@@ -1,0 +1,38 @@
+[Unit]
+Description=Citimoriunde HTTPS proxy
+Documentation=https://caddyserver.com/docs/
+After=network-online.target biblioteca-preview.service
+Wants=network-online.target
+
+[Service]
+Type=notify
+User=citimoriunde-caddy
+Group=citimoriunde-caddy
+Environment=XDG_DATA_HOME=/var/lib/citimoriunde-caddy/data
+Environment=XDG_CONFIG_HOME=/var/lib/citimoriunde-caddy/config
+ExecStartPre=/usr/local/bin/caddy validate --config /etc/citimoriunde/Caddyfile --adapter caddyfile
+ExecStart=/usr/local/bin/caddy run --config /etc/citimoriunde/Caddyfile --adapter caddyfile
+ExecReload=/usr/local/bin/caddy reload --config /etc/citimoriunde/Caddyfile --adapter caddyfile --address unix//run/citimoriunde-caddy/admin.sock
+Restart=on-failure
+RestartSec=5s
+TimeoutStopSec=20s
+LimitNOFILE=65536
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+CapabilityBoundingSet=CAP_NET_BIND_SERVICE
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+StateDirectory=citimoriunde-caddy
+StateDirectoryMode=0700
+RuntimeDirectory=citimoriunde-caddy
+RuntimeDirectoryMode=0700
+MemoryMax=192M
+CPUQuota=15%
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,2 @@
+import type {MetadataRoute} from 'next';import {config} from '@/lib/config';
+export default function robots():MetadataRoute.Robots{return {rules:{userAgent:'*',allow:config.environment==='production'?'/':undefined,disallow:config.environment==='production'?['/api/','/cont','/mesaje','/imprumuturi','/biblioteca-mea','/admin','/adauga','/autentificare','/inregistrare','/sesizari','/*?']:['/']},sitemap:config.appUrl+'/sitemap.xml'};}

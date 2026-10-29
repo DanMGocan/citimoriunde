@@ -1,0 +1,29 @@
+{
+  # Access logs stay disabled. HTTP error records must not retain callback
+  # tokens, cookie headers, private route identifiers or contact query strings.
+  log default {
+    format filter {
+      wrap json
+      fields {
+        request delete
+        resp_headers delete
+      }
+    }
+  }
+}
+:80 {
+  encode zstd gzip
+  request_body {
+    max_size {$PROXY_MAX_BODY_SIZE:16MB}
+  }
+  reverse_proxy web:3000 {
+    header_up X-Real-IP {remote_host}
+    header_up -X-Forwarded-For
+    header_up X-Forwarded-For {remote_host}
+  }
+  header {
+    -Server
+    X-Content-Type-Options nosniff
+    Referrer-Policy strict-origin-when-cross-origin
+  }
+}

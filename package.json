@@ -1,0 +1,57 @@
+{
+  "name": "biblioteca-comunitatii",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.22.0 <25"
+  },
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1",
+    "build": "tsx scripts/build.ts",
+    "start": "tsx scripts/start.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test --test-concurrency=1 tests/unit/*.test.ts",
+    "test:integration": "tsx scripts/test-db.ts",
+    "test:restore": "tsx scripts/test-db.ts --restore",
+    "test:browser": "tsx scripts/test-db.ts --browser",
+    "migrate": "tsx scripts/migrate.ts",
+    "seed": "tsx scripts/seed.ts",
+    "worker": "tsx scripts/worker.ts",
+    "smtp:check": "tsx scripts/smtp-check.ts",
+    "local:env": "node scripts/local-env.mjs",
+    "admin:bootstrap": "tsx scripts/bootstrap-admin.ts",
+    "loadtest": "tsx scripts/test-db.ts --load",
+    "readiness": "tsx scripts/readiness.ts",
+    "test:operations": "node scripts/test-operations.mjs",
+    "legal:export": "tsx scripts/legal-bootstrap.ts export",
+    "legal:bootstrap": "tsx scripts/legal-bootstrap.ts publish"
+  },
+  "dependencies": {
+    "next": "16.4.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "better-auth": "1.7.7",
+    "pg": "8.16.3",
+    "drizzle-orm": "0.45.2",
+    "zod": "4.1.12",
+    "sharp": "0.35.5",
+    "nodemailer": "10.0.16",
+    "dotenv": "17.2.3",
+    "lucide-react": "0.548.0",
+    "react-markdown": "10.1.0",
+    "remark-gfm": "4.0.1",
+    "@aws-sdk/client-s3": "3.1148.0",
+    "tsx": "4.20.6"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "@types/node": "22.18.11",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
+    "@types/pg": "8.15.5",
+    "@playwright/test": "1.56.1",
+    "tailwindcss": "4.1.16",
+    "@tailwindcss/postcss": "4.1.16"
+  }
+}
